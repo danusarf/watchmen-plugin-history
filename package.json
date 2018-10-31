@@ -1,0 +1,17 @@
+{
+    "name": "watchmen-plugin-history",
+    "version": "0.1.0",
+    "description": "Historical for watchmen",
+    "main": "index.js",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/danusarf/watchmen-plugin-slack.git"
+    },
+    "author": {
+      "name": "Dhimas Wahyu Wibisono",
+      "email": "danusarf@gmail.com"
+    },
+    "dependencies": {
+      "pg": "7.6.0"
+    }
+  }
