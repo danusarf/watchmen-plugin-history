@@ -100,7 +100,7 @@ var eventHandlers = {
                     const client = await pool.connect()
                     try {
                       await client.query('BEGIN')
-                      const insertBackText = 'INSERT INTO service_status(name, first_ping, last_ping) VALUES($1, $2, $3, $4)'
+                      const insertBackText = 'INSERT INTO service_status(name, first_ping, last_ping) VALUES($1, $2, $3)'
                       const insertBackValues = [service.name, moment(),moment()]
                       await client.query(insertBackText, insertBackValues)
                       await client.query('COMMIT')
