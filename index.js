@@ -1,30 +1,3 @@
-// ```
-// CREATE TABLE service_back(
-//     ID SERIAL PRIMARY KEY     NOT NULL,
-//     NAME           TEXT    NOT NULL,
-//     DURATION       INT     NOT NULL,
-//     LAST_OUTAGE    TIMESTAMP     NOT NULL
-//  );
-
-// CREATE TABLE service_status(
-// ID SERIAL PRIMARY KEY        NOT NULL,
-// NAME             TEXT        NOT NULL, 
-// TOTAL_OUTAGE     INT         NOT NULL, 
-// FIRST_PING       TIMESTAMP   NOT NULL, 
-// LAST_PING        TIMESTAMP   NOT NULL
-//  );
-// ```
-
-// SAMPLE GET UPTIME DATA
-// SELECT name, SUM(duration) AS down,(12*30*86400000::BIGINT-SUM(duration)::float)/(12*30*86400000::BIGINT)*100 AS UPTIME FROM service_back WHERE last_outage BETWEEN now()-INTERVAL '10 day' AND now() GROUP BY name;
-
-// WATCHMEN_PG_USER=
-// WATCHMEN_PG_HOST=
-// WATCHMEN_PG_DATABASE=
-// WATCHMEN_PG_PASSWORD=
-// WATCHMEN_PG_PORT=
-
-
 var moment = require('moment');
 require('dotenv').load({ silent: true });
 
@@ -127,8 +100,8 @@ var eventHandlers = {
                     const client = await pool.connect()
                     try {
                       await client.query('BEGIN')
-                      const insertBackText = 'INSERT INTO service_status(name, total_outage, first_ping, last_ping) VALUES($1, $2, $3, $4)'
-                      const insertBackValues = [service.name, 0, moment(),moment()]
+                      const insertBackText = 'INSERT INTO service_status(name, first_ping, last_ping) VALUES($1, $2, $3, $4)'
+                      const insertBackValues = [service.name, moment(),moment()]
                       await client.query(insertBackText, insertBackValues)
                       await client.query('COMMIT')
                     } catch (e) {
