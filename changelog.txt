@@ -1,2 +1,3 @@
 0.1.0: First Usable release
-0.1.1: Cleaning up the release, remove unnecessary column.
+0.1.1: Cleaning up the release, remove unnecessary column
+0.1.2: Fixing wrong insert value on Database
