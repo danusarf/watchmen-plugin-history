@@ -25,19 +25,18 @@ This how to guide only cover using docker-compose
 ## Prepare your Postgres
 1. To use this plugin you need postgres. (Only tested working on postgres 9.6).
 2. Create the required tables:
-CREATE  TABLE  service_back( <br />
-ID  SERIAL  PRIMARY  KEY  NOT  NULL, <br />
-NAME  TEXT  NOT  NULL, <br />
-DURATION  INT  NOT  NULL, <br />
-LAST_OUTAGE  TIMESTAMP  NOT  NULL <br />
-); <br />
-  <br />
-CREATE  TABLE  service_status( <br />
-ID  SERIAL  PRIMARY  KEY  NOT  NULL, <br />
-NAME  TEXT  NOT  NULL, <br />
-FIRST_PING  TIMESTAMP  NOT  NULL, <br />
-LAST_PING  TIMESTAMP  NOT  NULL <br />
-); <br />
+> CREATE  TABLE  service_back( <br />
+> ID  SERIAL  PRIMARY  KEY  NOT  NULL, <br />
+> NAME  TEXT  NOT  NULL, <br />
+> DURATION  INT  NOT  NULL, <br />
+> LAST_OUTAGE  TIMESTAMP  NOT  NULL <br />
+> ); <br />
+> CREATE  TABLE  service_status( <br />
+> ID  SERIAL  PRIMARY  KEY  NOT  NULL, <br />
+> NAME  TEXT  NOT  NULL, <br />
+> FIRST_PING  TIMESTAMP  NOT  NULL, <br />
+> LAST_PING  TIMESTAMP  NOT  NULL <br />
+> ); <br />
 
 ## Visualize Your Data
 You can visualize you data using Grafana with PostgreSQL datasource. You can start trying using with this Dashboard. https://grafana.com/dashboards/8735.
