@@ -23,9 +23,8 @@ This how to guide only cover using docker-compose
 
 
 ## Prepare your Postgres
-1. To use this plugin you need postgres, you need postgresql (Only tested working on postgres 9.6).
+1. To use this plugin you need postgres. (Only tested working on postgres 9.6).
 2. Create the required tables:
-
 CREATE  TABLE  service_back( <br />
 ID  SERIAL  PRIMARY  KEY  NOT  NULL, <br />
 NAME  TEXT  NOT  NULL, <br />
